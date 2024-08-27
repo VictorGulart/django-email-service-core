@@ -1,8 +1,13 @@
 import logging
 
 from django.db import models
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
+
+
+def get_email_service_default_choices():
+    return settings.EMAIL_SERVICE_CORE_CONFIG.get("choices", [])
 
 
 class EmailSettingsManager(models.Manager):
@@ -12,7 +17,10 @@ class EmailSettingsManager(models.Manager):
 
 
 class EmailSettings(models.Model):
-    email_name = models.CharField(max_length=255, unique=True, null=False)
+
+    email_name = models.Choices(
+        max_length=255, choices=get_email_service_default_choices, null=False
+    )
     email_list = models.TextField(null=True, blank=True)
     enabled = models.BooleanField(default=False)
 

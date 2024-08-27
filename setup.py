@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="emailservice_core",
+    name="email_service_core",
     version="0.1",
     author="Victor Gulart",
     author_email="victor.gulart@natoora.com",
