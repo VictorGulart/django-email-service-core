@@ -7,10 +7,16 @@ logger = logging.getLogger(__name__)
 
 
 def get_email_service_default_choices():
-    assert hasattr(
-        settings, "EMAIL_SERVICE_CORE_CONFIG"
-    ), "Project settings must override the EMAIL_SERVICE_CORE_CONFIG attribute."
-    return settings.EMAIL_SERVICE_CORE_CONFIG.get("choices", [])
+    app_name = "email_service_core"
+    setting_name = "EMAIL_SERVICE_CORE_CONFIG"
+    assert hasattr(settings, setting_name), (
+        f"The '{setting_name}' setting is missing in your project settings. "
+        f"This is required by the '{app_name}' app to provide default choices for the 'email_name' field. "
+        "Please add this setting to your project settings."
+    )
+    return settings.EMAIL_SERVICE_CORE_CONFIG.get(
+        "SystemEmail", models.TextChoices
+    ).choices
 
 
 class EmailSettingsManager(models.Manager):
@@ -22,7 +28,10 @@ class EmailSettingsManager(models.Manager):
 class EmailSettings(models.Model):
 
     email_name = models.CharField(
-        max_length=255, choices=get_email_service_default_choices, null=False
+        max_length=255,
+        choices=get_email_service_default_choices,
+        null=False,
+        unique=True,
     )
     email_list = models.TextField(null=True, blank=True)
     enabled = models.BooleanField(default=False)
