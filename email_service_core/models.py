@@ -12,16 +12,14 @@ def get_email_service_default_choices():
     system_emails = "SystemEmails"
 
     # Check for main settings
-    core_settings = getattr(settings, setting_name)
-
-    assert core_settings, (
+    assert hasattr(settings, setting_name), (
         f"The '{setting_name}' setting is missing in your project settings. "
         f"This is required by the '{app_name}' app to provide default choices for the 'email_name' field. "
         "Please add this setting to your project settings."
     )
 
     # Check if the specific 'SystemEmails' choices are available within the main setting
-    assert system_emails in core_settings, (
+    assert system_emails in settings.EMAIL_SERVICE_CORE_CONFIG, (
         f"The '{system_emails}' key is missing within the '{setting_name}' setting in your project settings. "
         f"This is required by the '{app_name}' app to provide default choices for the 'email_name' field. "
         "Please ensure this key is correctly configured."
