@@ -15,7 +15,7 @@ def get_email_service_default_choices():
         "Please add this setting to your project settings."
     )
     return settings.EMAIL_SERVICE_CORE_CONFIG.get(
-        "SystemEmail", models.TextChoices
+        "SystemEmails", models.TextChoices
     ).choices
 
 
