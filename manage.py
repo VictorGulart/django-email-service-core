@@ -10,7 +10,7 @@ settings.configure(
     INSTALLED_APPS=["email_service_core"],
     ALLOWED_HOSTS=["localhost"],
     ROOT_URLCONF="urls",
-    # EMAIL_SERVICE_CORE_CONFIG={"choices": []},
+    # EMAIL_SERVICE_CORE_CONFIG={"choices": []},  # uncomment when migrating
 )
 
 import django
