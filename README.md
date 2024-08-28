@@ -4,7 +4,7 @@
 Quick start
 -----------
 
-1. Add "polls" to your INSTALLED_APPS setting like this::
+1. Add "email_service_core" to your INSTALLED_APPS setting like this::
 
     ```py
     INSTALLED_APPS = [
@@ -18,8 +18,8 @@ Quick start
 ## Project Settings 
 
 It is necessary to define the email choices available in the system, this way we can handle them in one place.
-The Email Service will be looking exactly for EMAIL_SERVICE_CORE_CONFIG in the project settings, with a key 
-with SystemEmail which is a django models.TextChoices.
+The Email Service will be looking exactly for ```EMAIL_SERVICE_CORE_CONFIG``` in the project settings, with a key 
+with ```SystemEmail``` which is a Django ```models.TextChoices```.
 
 Example:
 
