@@ -36,7 +36,7 @@ EMAIL_SERVICE_CORE_CONFIG = {"SystemEmails": SystemEmails}
 
 ## EmailSettings Manager
 
-The manager has a get_or_none() function to facilitate the fetch object and to remove error handling as it's unnecessary.
+The manager has a ```get_or_none()``` function to facilitate the fetch object and to remove error handling as it's unnecessary.
 
 It's recommended to add a logger info to make sure that the system is aware of the email not being enabled or set. 
 
