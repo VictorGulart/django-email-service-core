@@ -26,33 +26,27 @@ from ws.settings import SERVER_EMAIL
 EMAIL_SETTINGS_CONFIG = [
 
     # WS APP
-    ("order_confirmation", "", True), # user email
-    ("order_invoice", "technology@natoora.com,", True), # directly to customer or to technology
-    ("order_credit_note", "technology@natoora.com,", True),
-    ("summary_email", "technology@natoora.com,", True),
-    ("product_no_location", SERVER_MAIL, True),
-    ("unassigned_item_service", "raph@natoora.com,carlos@natoora.com", True),
-    ("user_forgot_password", "", True), # specific user
-    ("send_users_notification", "", True), # specific user
-    # CSVExport uses export types
-    ("order_item_list", "", True), # specific user
-    ("stock_totals", "", True), # specific user
-    ("product_list", "", True), # specific user
-    ("openedi_notification_issues", "keyaccounts@natoora.com,logs@natoora.com", True), 
-    ("retail_invalid_packaging", "technology@natoora.com,keyaccounts@natoora.com", True), 
-    ("retail_item_check_error", SERVER_MAIL, True), 
-    ("specialprices_expiry", "wholesale@natoora.com", True), 
-    ("exchange_rate_expiry", "franco@natoora.com,pablo@natoora.com", True), 
-    ("websocket_pickingstat_exception", SERVER_MAIL, True), 
-    ("supplier_created", "safety@natoora.com", True), 
-    ("supplier_reactivated", "safety@natoora.com", True), 
-    ("hd_team_customer_delete_account", "clientsadmin@natoora.com, grocerydelivery@natoora.com", True), 
-    ("customer_request_delete_account", "", True), # directly to the customer
-    ("customer_hd_app_messages", "homedelivery@natoora.com" or "grocerydelivery@natoora.com", True), # home delivery email for London otherwise grocery delivery email
-    ("order_with_disabled_products", "", True), # directly to user email
-    ("customer_ready_to_order", "", True), # directly to user email
+    ("SEND_CUSTOMER_ORDER_INVOICE", "technology@natoora.com,", True), # directly to customer or to technology
+    ("SEND_CUSTOMER_ORDER_CREDIT_NOTE", "technology@natoora.com,", True),
+    ("SEND_SUMMARY_EMAIL", "technology@natoora.com,", True),
+    ("SEND_PRODUCT_HAS_NO_LOCATION", SERVER_MAIL, True),
+    ("SEND_UNASSIGNED_ITEM_REPORT", "raph@natoora.com,carlos@natoora.com", True),
+    ("SEND_USERS_EMAIL_NOTIFICATION", "", True), # specific user
+    ("SEND_CSV_EXPORT", "", True), # specific user
+    ("SEND_OPENEDI_NOTIFICATION_ISSUES", "keyaccounts@natoora.com,logs@natoora.com", True), 
+    ("SEND_RETAIL_MISSING_PACKAGING", "technology@natoora.com,keyaccounts@natoora.com", True), 
+    ("SEND_RETAIL_FINAL_CHECKS_ERRORS", SERVER_MAIL, True), 
+    ("SEND_DAY_SPECIAL_PRICES_EXPIRATION", "wholesale@natoora.com", True), 
+    ("SEND_EXCHANGE_RATE_EXPIRY", "franco@natoora.com,pablo@natoora.com", True), 
+    ("SEND_WEBSOCKET_PICKINGSTAT_EXCEPTION", SERVER_MAIL, True), 
+    ("SEND_HD_TEAM_CUSTOMER_DELETE_ACCOUNT_REQUEST", "clientsadmin@natoora.com, grocerydelivery@natoora.com", True), 
+    ("SEND_HD_CUSTOMER_ACCOUNT_DELETION_CONFIRMATION", "", True), # directly to the customer
+    ("SEND_HD_CUSTOMER_MESSAGES_TO_CUSTOMER_SERVICE", "homedelivery@natoora.com" or "grocerydelivery@natoora.com", True), # home delivery email for London otherwise grocery delivery email
+    ("SEND_HD_CUSTOMER_ORDER_PRODUCT_DISABLED", "", True), # directly to user email
+    ("SEND_HD_CUSTOMER_READY_TO_ORDER_UPDATE", "", True), # directly to user email
+    ("SEND_HD_CUSTOMER_ORDER_CONFIRMATION", "", True), # user email
 
-    # Suppliers APP
+    # Suppliers MS
     ("send_supplier_created_email", "safety@natoora.com", True),
     ("send_supplier_reactivated_email", "safety@natoora.com", True),
     ("send_portal_user_activation_email", "", True), # directly to user
@@ -60,6 +54,10 @@ EMAIL_SETTINGS_CONFIG = [
     ("send_saq_status_change_email", "safety@natoora.com", True),
     ("send_expired_document_email", "safety@natoora.com", True),
     ("send_expiring_saq_email", "", True), # directly to user
+
+
+    # Purchases MS
+
 ]
 ```
 
