@@ -43,7 +43,11 @@ class EmailSettings(models.Model):
         null=False,
         unique=True,
     )
-    email_list = models.TextField(null=True, blank=True)
+    email_list = models.TextField(
+        null=True,
+        blank=True,
+        help_text="List of comma separated emails. Leave empty when user is generic.",
+    )
     enabled = models.BooleanField(default=False)
 
     objects = EmailSettingsManager()
