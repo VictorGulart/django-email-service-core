@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from django.db import models
 import sys
 
 sys.path.append("..")
@@ -10,7 +11,10 @@ settings.configure(
     INSTALLED_APPS=["email_service_core"],
     ALLOWED_HOSTS=["localhost"],
     ROOT_URLCONF="urls",
-    # EMAIL_SERVICE_CORE_CONFIG={"choices": []},  # uncomment when migrating
+    # uncomment when migrating
+    # EMAIL_SERVICE_CORE_CONFIG={
+    #     "SystemEmails": models.TextChoices
+    # },
 )
 
 import django
