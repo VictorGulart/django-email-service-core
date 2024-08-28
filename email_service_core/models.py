@@ -9,10 +9,21 @@ logger = logging.getLogger(__name__)
 def get_email_service_default_choices():
     app_name = "email_service_core"
     setting_name = "EMAIL_SERVICE_CORE_CONFIG"
+    system_emails = "SystemEmails"
+
+    # Check for main settings
     assert hasattr(settings, setting_name), (
         f"The '{setting_name}' setting is missing in your project settings. "
         f"This is required by the '{app_name}' app to provide default choices for the 'email_name' field. "
         "Please add this setting to your project settings."
+    )
+
+    # Check if the specific 'SystemEmails' choices are available within the main setting
+    core_settings = getattr(settings, system_emails)
+    assert system_emails in core_settings, (
+        f"The '{system_emails}' key is missing within the '{setting_name}' setting in your project settings. "
+        f"This is required by the '{app_name}' app to provide default choices for the 'email_name' field. "
+        "Please ensure this key is correctly configured."
     )
     return settings.EMAIL_SERVICE_CORE_CONFIG.get(
         "SystemEmails", models.TextChoices
